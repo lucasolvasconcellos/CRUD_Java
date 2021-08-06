@@ -2,12 +2,33 @@ package br.com.cotiinformatica.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+@Entity
+@Table(name = "FUNCIONARIO")
 public class Funcionario {
-
-	private Integer idFuncionario;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDFUNCIONARIO")
+    private Integer idFuncionario;
+	
+	@Column(name = "NOME", length = 150,nullable = false)
 	private String nome;
+	
+	@Column(name = "CPF",nullable = false)
 	private String cpf;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATAADMISSAO", nullable = false)
 	private Date dataAdmissao;
+	
+	@Column(name = "SALARIO", nullable = false)
 	private Double salario;
 
 	public Funcionario() {

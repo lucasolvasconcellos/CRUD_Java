@@ -1,10 +1,28 @@
 package br.com.cotiinformatica.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "EMPRESA")
 public class Empresa {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "EMPRESA")
 	private Integer idEmpresa;
+	
+	@Column(name = "NOMEFATASIA", length = 150, nullable = false)
 	private String nomeFantasia;
+	
+	@Column(name = "RAZAOSOCIAL", length = 150, nullable = false, unique = true)
 	private String razaoSocial;
+	
+	@Column(name = "CNPJ", nullable = false)
 	private String cnpj;
 	
 	public Empresa() {
